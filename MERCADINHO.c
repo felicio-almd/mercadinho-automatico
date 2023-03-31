@@ -152,16 +152,25 @@ float dartroco(float contEntrada, float valor, int prod1, int prod2, int prod3, 
 }
 
 int realizarCompra(int opcao, int prod1, int prod2, int prod3, int prod4, int prod5, float faturamento) {
-  limpartela();
   float valor = 0, troco, contEntrada = 0;
   switch (opcao) {
   case 1:
     if (prod1 > 0) {
-      printf("\n\nVoce escolheu comprar um gulao.\nValor: R$3,50\n");
-      prod1--;
-      valor = 3.50;
-      faturamento += 3.50;
-      troco = dartroco(contEntrada, valor, prod1, prod2, prod3, prod4, prod5, faturamento);
+      int n = 0;
+      printf("\n\nVoce escolheu comprar gulao.\nValor: R$3,50\n");
+      printf("Qual quantidade deseja?\n");
+      scanf("%i", &n);
+      if (n>prod1){
+        printf("\n\nQuantidade Invalida!");
+        realizarCompra(opcao, prod1, prod2, prod3, prod4, prod5, faturamento);
+        }
+      else  {
+        prod1 -= n;
+        valor = (3.50) * n;
+        faturamento += (3.50) * n;
+        troco = dartroco(contEntrada, valor, prod1, prod2, prod3, prod4, prod5,
+                       faturamento);
+      }
 
     } else if (prod1 == 0) {
       printf("Sem estoque desse produto.\n\n");
@@ -170,11 +179,22 @@ int realizarCompra(int opcao, int prod1, int prod2, int prod3, int prod4, int pr
     break;
   case 2:
     if (prod2 > 0) {
+      int n = 0;
       printf("Voce escolheu comprar uma Coca Cola.\nValor: R$5,00\n");
-      prod2--;
-      valor = 5.00;
-      faturamento += 5.00;
-      troco = dartroco(contEntrada, valor, prod1, prod2, prod3, prod4, prod5, faturamento);
+      printf("Qual quantidade deseja?\n");
+      scanf("%i", &n);
+      if (n>prod2){
+        printf("\n\nQuantidade Invalida!");
+        limpartela();
+        realizarCompra(opcao, prod1, prod2, prod3, prod4, prod5, faturamento);
+        }
+      else  {
+      prod2 -= n;
+      valor = (5.00) * n;
+      faturamento += (5.00) * n;
+      troco = dartroco(contEntrada, valor, prod1, prod2, prod3, prod4, prod5,
+                       faturamento);
+      }
 
     } else if (prod2 == 0) {
       printf("Sem estoque desse produto.");
@@ -183,11 +203,22 @@ int realizarCompra(int opcao, int prod1, int prod2, int prod3, int prod4, int pr
     break;
   case 3:
     if (prod3 > 0) {
+      int n = 0;
       printf("Voce escolheu comprar um Salgado frito.\nValor: R$6,50\n");
-      prod3--;
-      valor = 6.50;
-      faturamento += 6.50;
-      troco = dartroco(contEntrada, valor, prod1, prod2, prod3, prod4, prod5, faturamento);
+      printf("Qual quantidade deseja?\n");
+      scanf("%i", &n);
+      if (n>prod3){
+        printf("\n\nQuantidade Invalida!");
+        limpartela();
+        realizarCompra(opcao, prod1, prod2, prod3, prod4, prod5, faturamento);
+        }
+      else  {
+      prod3 -= n;
+      valor = (6.50) * n;
+      faturamento += (6.50) * n;
+      troco = dartroco(contEntrada, valor, prod1, prod2, prod3, prod4, prod5,
+                       faturamento);
+      }
 
     } else if (prod3 == 0) {
       printf("Sem estoque desse produto.");
@@ -196,11 +227,22 @@ int realizarCompra(int opcao, int prod1, int prod2, int prod3, int prod4, int pr
     break;
   case 4:
     if (prod4 > 0) {
+      int n = 0;
       printf("Voce escolheu comprar uma Danix.\nValor: R$3,00\n");
-      prod4--;
-      valor = 3.00;
-      faturamento += 3.00;
-      troco = dartroco(contEntrada, valor, prod1, prod2, prod3, prod4, prod5, faturamento);
+      printf("Qual quantidade deseja?\n");
+      scanf("%i", &n);
+      if (n>prod4){
+        printf("\n\nQuantidade Invalida!");
+        limpartela();
+        realizarCompra(opcao, prod1, prod2, prod3, prod4, prod5, faturamento);
+        }
+      else  {
+      prod4 -= n;
+      valor = (3.00) * n;
+      faturamento += (3.00) * n;
+      troco = dartroco(contEntrada, valor, prod1, prod2, prod3, prod4, prod5,
+                       faturamento);
+      }
 
     } else if (prod4 == 0) {
       printf("Sem estoque desse produto.");
@@ -209,11 +251,22 @@ int realizarCompra(int opcao, int prod1, int prod2, int prod3, int prod4, int pr
     break;
   case 5:
     if (prod5 > 0) {
+      int n = 0;
       printf("Voce escolheu comprar uma Limonada (Jarra).\nValor: R$8,40\n");
-      prod5--;
-      valor = 8.40;
-      faturamento += 8.40;
-      troco = dartroco(contEntrada, valor, prod1, prod2, prod3, prod4, prod5, faturamento);
+      printf("Qual quantidade deseja?\n");
+      scanf("%i", &n);
+      if (n>prod3){
+        printf("\n\nQuantidade Invalida!");
+        limpartela();
+        realizarCompra(opcao, prod1, prod2, prod3, prod4, prod5, faturamento);
+        }
+      else  {
+      prod5 -= n;
+      valor = (8.40) * n;
+      faturamento += (8.40) * n;
+      troco = dartroco(contEntrada, valor, prod1, prod2, prod3, prod4, prod5,
+                       faturamento);
+      }
 
     } else if (prod5 == 0) {
       printf("Sem estoque de Limonada.");
